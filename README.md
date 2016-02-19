@@ -11,6 +11,28 @@ Dependencies
 
   [Embedded C MQTT Client]: http://www.eclipse.org/paho/clients/c/embedded/
   
+Build Dependencies
+------------------
+
+1.  [CMake 2.8+]
+
+  [CMake 2.8+]: http://cmake.org
+
+Build & Install
+--------------
+
+~~~~~~~~~~~~~{.sh}
+mkdir build
+cd build
+cmake ..
+make
+~~~~~~~~~~~~~
+
+One built you can install the libraries by running:
+
+```bash
+sudo make install
+```
 
 Embedded C Client Library - Devices
 ===================================
