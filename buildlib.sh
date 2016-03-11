@@ -4,6 +4,7 @@ echo "Compiling source files ..."
 rm -rf build > /dev/null
 mkdir build
 
+gcc -Wall -fPIC -c -D_GNU_SOURCE -I./ -I./lib ./devicemanagementclient.c  -o devicemanagementclient.o
 gcc -Wall -fPIC -c -D_GNU_SOURCE -I./ -I./lib ./gatewayclient.c  -o gatewayclient.o
 gcc -Wall -fPIC -c -D_GNU_SOURCE -I./ -I./lib ./iotfclient.c  -o iotfclient.o
 gcc  -Wall -fPIC -c -D_GNU_SOURCE -I./ -I./lib ./lib/MQTTClient.c -o mqttclient.o
@@ -19,12 +20,13 @@ gcc  -Wall -fPIC -c -D_GNU_SOURCE -I./ -I./lib ./lib/MQTTSubscribeServer.c -o mq
 gcc  -Wall -fPIC -c -D_GNU_SOURCE -I./ -I./lib ./lib/MQTTUnsubscribeServer.c -o mqttunsubscribeserver.o
 gcc  -Wall -fPIC -c -D_GNU_SOURCE -I./ -I./lib ./lib/MQTTUnsubscribeClient.c -o mqttunsubscribeclient.o
 echo ""
-echo "Linking libiotf.so libwiotdevice.so"
+echo "Linking libiotfdevmgt.so libiotf.so libwiotdevice.so"
 
+gcc -shared -Wl,-soname,libiotfdevmgt.so -lm -ldl -lpthread -o ./build/libiotfdevmgt.so devicemanagementclient.o mqttclient.o mqttlinux.o mqttformat.o  mqttpacket.o mqttdespublish.o mqttconnectclient.o mqttsubscribeclient.o mqttserpublish.o mqttconnectserver.o mqttsubscribeserver.o mqttunsubscribeserver.o mqttunsubscribeclient.o
 gcc -shared -Wl,-soname,libiotf.so -lm -ldl -lpthread -o ./build/libiotf.so gatewayclient.o mqttclient.o mqttlinux.o mqttformat.o  mqttpacket.o mqttdespublish.o mqttconnectclient.o mqttsubscribeclient.o mqttserpublish.o mqttconnectserver.o mqttsubscribeserver.o mqttunsubscribeserver.o mqttunsubscribeclient.o
 gcc -shared -Wl,-soname,libwiotdevice.so -lm -ldl -lpthread -o ./build/libwiotdevice.so iotfclient.o mqttclient.o mqttlinux.o mqttformat.o  mqttpacket.o mqttdespublish.o mqttconnectclient.o mqttsubscribeclient.o mqttserpublish.o mqttconnectserver.o mqttsubscribeserver.o mqttunsubscribeserver.o mqttunsubscribeclient.o
 echo ""
 echo "Removing temporary files..."
-rm iotfclient.o gatewayclient.o mqttclient.o mqttlinux.o mqttformat.o  mqttpacket.o mqttdespublish.o mqttconnectclient.o mqttsubscribeclient.o mqttserpublish.o mqttconnectserver.o mqttsubscribeserver.o mqttunsubscribeserver.o mqttunsubscribeclient.o
+rm devicemanagementclient.o iotfclient.o gatewayclient.o mqttclient.o mqttlinux.o mqttformat.o  mqttpacket.o mqttdespublish.o mqttconnectclient.o mqttsubscribeclient.o mqttserpublish.o mqttconnectserver.o mqttsubscribeserver.o mqttunsubscribeserver.o mqttunsubscribeclient.o
 echo ""
 echo "Build complete"

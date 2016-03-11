@@ -130,7 +130,7 @@ int connectiotf(Iotfclient *client)
 
 	NewNetwork(&client->n);
 	ConnectNetwork(&client->n, hostname, port);
-	MQTTClient(&client->c, &client->n, 1000, client->buf, 100, client->readbuf, 100);
+	MQTTClient(&client->c, &client->n, 1000, client->buf, 1000, client->readbuf, 1000);
  
 	MQTTPacket_connectData data = MQTTPacket_connectData_initializer;       
 	data.willFlag = 0;

@@ -24,11 +24,13 @@ include_directories(. lib)
 file(GLOB LIBS "lib/*.c")
 
 set (LIB_GLOB_HEADERS
+  devicemanagementclient.h
   gatewayclient.h
   iotfclient.h
 )
  
 # Generate shared libraries
+add_library(iotfdevmgt SHARED devicemanagementclient.c ${LIBS})
 add_library(iotf SHARED gatewayclient.c ${LIBS})
 add_library(wiotdevice SHARED iotfclient.c ${LIBS})
 
@@ -36,5 +38,6 @@ add_library(wiotdevice SHARED iotfclient.c ${LIBS})
 install (FILES ${LIB_GLOB_HEADERS} DESTINATION include)
  
 # Install libraries
+install(TARGETS iotfdevmgt DESTINATION lib)
 install(TARGETS wiotdevice DESTINATION lib)
 install(TARGETS iotf DESTINATION lib)

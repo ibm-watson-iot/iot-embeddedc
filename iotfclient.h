@@ -41,8 +41,8 @@ struct iotfclient
 	Client c;
 	struct config config;
 
-	unsigned char buf[100];
-        unsigned char readbuf[100];
+	unsigned char buf[1000];
+        unsigned char readbuf[1000];
         int isQuickstart;
 };
 
