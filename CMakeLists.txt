@@ -35,9 +35,9 @@ add_library(iotf SHARED gatewayclient.c ${LIBS})
 add_library(wiotdevice SHARED iotfclient.c ${LIBS})
 
 # Install header files
-install (FILES ${LIB_GLOB_HEADERS} DESTINATION include)
+install (FILES ${LIB_GLOB_HEADERS} DESTINATION ${CMAKE_INSTALL_INCLUDEDIR})
  
 # Install libraries
-install(TARGETS iotfdevmgt DESTINATION lib)
-install(TARGETS wiotdevice DESTINATION lib)
-install(TARGETS iotf DESTINATION lib)
+install(TARGETS iotfdevmgt DESTINATION ${CMAKE_INSTALL_LIBDIR})
+install(TARGETS wiotdevice DESTINATION ${CMAKE_INSTALL_LIBDIR})
+install(TARGETS iotf DESTINATION ${CMAKE_INSTALL_LIBDIR})
