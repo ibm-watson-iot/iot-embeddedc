@@ -19,6 +19,7 @@
 
 #include "MQTTClient.h"
 #include <ctype.h>
+#define BUFFER_SIZE 1000
 
 // all failure return codes must be negative(extending from mqttclient)
 enum errorCodes { CONFIG_FILE_ERROR = -3, MISSING_INPUT_PARAM = -4, QUICKSTART_NOT_SUPPORTED = -5 };
@@ -39,8 +40,8 @@ struct gatewayclient
 	Client c;
 	struct config config;
 
-	unsigned char buf[100];
-    unsigned char readbuf[100];
+	unsigned char buf[BUFFER_SIZE];
+    unsigned char readbuf[BUFFER_SIZE];
 };
 
 typedef struct gatewayclient GatewayClient;

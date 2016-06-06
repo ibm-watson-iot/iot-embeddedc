@@ -22,6 +22,8 @@
 #include "MQTTClient.h"
 #include <ctype.h>
 
+#define BUFFER_SIZE 1000
+
 // all failure return codes must be negative(extending from mqttclient)
 enum errorCodes { CONFIG_FILE_ERROR = -3, MISSING_INPUT_PARAM = -4 };
 
@@ -41,8 +43,8 @@ struct iotfclient
 	Client c;
 	struct config config;
 
-	unsigned char buf[1000];
-        unsigned char readbuf[1000];
+	unsigned char buf[BUFFER_SIZE];
+        unsigned char readbuf[BUFFER_SIZE];
         int isQuickstart;
 };
 
