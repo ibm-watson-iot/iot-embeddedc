@@ -22,7 +22,7 @@
 #include "MQTTClient.h"
 #include <ctype.h>
 
-#define BUFFER_SIZE 1000
+#define BUFFER_SIZE 1024
 
 // all failure return codes must be negative(extending from mqttclient)
 enum errorCodes { CONFIG_FILE_ERROR = -3, MISSING_INPUT_PARAM = -4 };
