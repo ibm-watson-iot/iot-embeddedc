@@ -136,11 +136,11 @@ void NewNetwork(Network* n)
  			res = res->ai_next;
  		}
 
- 		if (result->ai_family == AF_INET)
+ 		if (res->ai_family == AF_INET)
  		{
  			address.sin_port = htons(port);
  			address.sin_family = family = AF_INET;
- 			address.sin_addr = ((struct sockaddr_in*)(result->ai_addr))->sin_addr;
+ 			address.sin_addr = ((struct sockaddr_in*)(res->ai_addr))->sin_addr;
 
                         sprintf(logHdr,"%s:%d:%s:",__FILE__,__LINE__,__func__);
                         sprintf(logStr,"%s","ADDR FAMILY: AF_INET");
