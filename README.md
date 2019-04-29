@@ -1,6 +1,16 @@
 Embedded C Client Library - Introduction
 ========================================
 
+This repository is no longer maintained.  Please refer to the following client library options for supported options:
+
+- https://github.com/ibm-watson-iot/iot-python
+- https://github.com/ibm-watson-iot/iot-c
+- https://github.com/ibm-watson-iot/iot-java
+- https://github.com/ibm-watson-iot/iot-nodejs
+- https://github.com/ibm-watson-iot/iot-csharp
+
+----
+
 Embedded C client for interacting with the IBM Watson Internet of Things Platform.
 
 Supported Features
