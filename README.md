@@ -61,6 +61,7 @@ The `setsup.sh` script installs listed dependencies under Dependencies Section a
 
 3. Create directory `build` within $IOT_EMBDC_HOME Path: `mkdir $IOT_EMBDC_HOME/build`
 4. Change to `$IOT_EMBDC_HOME/build` directory to build the library: `cd $IOT_EMBDC_HOME/build`
+5. Run `CMake` with disabled test flag to collect all required build details excluding tests and to create Makefile: `cmake .. -Drun_tests=false`
 6. Run `CMake` to collect all required build details and to create Makefile: `cmake ..`
 7. Run make to build the library, samples and tests: `make`
 
